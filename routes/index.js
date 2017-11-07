@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const tweetBank = require('../tweetBank');
+const bodyParser = require('body-parser');
+
+const urlencoderParser = bodyParser.urlencoded({extended: false});
 
 
 router.get('/', function (req, res) {
@@ -25,9 +28,12 @@ router.get( '/users/:name', function (req, res) {
 });
 
 router.use(express.static('public'));
-// router.get('/stylesheets/style.css', function(req, res) {
-//   res.sendFile('style.css');
-// })
 
+router.post('/tweets', urlencoderParser, function(req, res) {
+  var name = req.body.name;
+  var text = req.body.text;
+  tweetBank.add(name, text);
+  res.redirect('/');
+});
 
 module.exports = router;
