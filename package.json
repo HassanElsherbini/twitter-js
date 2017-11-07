@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/jcheungwo/twitter-js/issues"
   },
-  "homepage": "https://github.com/jcheungwo/twitter-js#readme"
+  "homepage": "https://github.com/jcheungwo/twitter-js#readme",
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
 }
