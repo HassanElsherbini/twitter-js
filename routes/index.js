@@ -24,7 +24,9 @@ router.get( '/users/:name', function (req, res) {
   let userTweet = tweetBank.find(function(tweet){
     return tweet.name === req.params.name;
   });
-  res.render('index', {tweets: userTweet, showForm: false});
+
+  let nameValue = userTweet[0].name;
+  res.render('index', {tweets: userTweet, showForm: true, nameValue: nameValue});
 });
 
 router.use(express.static('public'));
