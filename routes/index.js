@@ -1,6 +1,11 @@
 const express = require('express');
 const router = express.Router();
-// const nunjucks = require('nunjucks');
+const tweetBank = require('../tweetBank');
+
+router.get('/', function (req, res) {
+  let tweets = tweetBank.list();
+  res.render( 'index', { tweets: tweets } );
+});
 
 router.use(function (req, res, next) {
     // do your logging here
@@ -10,9 +15,9 @@ router.use(function (req, res, next) {
     console.log(req.method, req.url);
     next()
 })
-
-// router.get('/', (req, res) => {
-//   res.render('index.html', locals);
+router.use(express.static('public'));
+// router.get('/stylesheets/style.css', function(req, res) {
+//   res.sendFile('style.css');
 // })
 
 
