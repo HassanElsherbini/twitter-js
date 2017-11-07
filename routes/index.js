@@ -5,7 +5,7 @@ const tweetBank = require('../tweetBank');
 
 router.get('/', function (req, res) {
   let tweets = tweetBank.list();
-  res.render( 'index', { tweets: tweets } );
+  res.render( 'index', { tweets: tweets, showForm: true } );
 });
 
 router.use(function (req, res, next) {
@@ -21,7 +21,7 @@ router.get( '/users/:name', function (req, res) {
   let userTweet = tweetBank.find(function(tweet){
     return tweet.name === req.params.name;
   });
-  res.render('index', {tweets: userTweet});
+  res.render('index', {tweets: userTweet, showForm: false});
 });
 
 router.use(express.static('public'));
