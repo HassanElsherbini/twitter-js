@@ -44,6 +44,12 @@ code {
 .tweetbox {
   padding: 7px;
 }
+.tweetbox li {
+  list-style-type: none;
+}
+.name{
+  font-weight: bold;
+}
 
 .tweetbox img {
   float: left;

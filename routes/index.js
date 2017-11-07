@@ -13,7 +13,7 @@ router.use(function (req, res, next) {
     // if (err) throw err;
 
     console.log(req.method, req.url);
-    next()
+    next();
 })
 router.use(express.static('public'));
 // router.get('/stylesheets/style.css', function(req, res) {
